@@ -38,8 +38,21 @@
       <li><code>kdl_robot_test.cpp</code>: implements the trajectory merged with the vision-based task (<i>Point (2c)</i>). Notice that this point was just about merging the controller developed in the previous homework with the vision-based task. The only thing that changes is the desired posed, which was the variable <code>des_pose</code> with two fields:
         <ul>
           <li><code>des_pose.p</code>: it is still computed by the planner (<code>KDLPlanner::compute_trajectory</code>)</li>
-          <li><code>des_pose.M</code>: it is computed in about row 300: <code>des_pose.M = robot.getEEFrame().M*Re</code>, where <code>Re</code> is computed as the matrix needed to align the end-effector frame to the aruco frame.</li>
+          <li><code>des_pose.M</code>: now changes with respect to the one of the planner and is computed in row 300:<br> <code>des_pose.M = robot.getEEFrame().M*Re</code>, where <code>Re</code> is computed as the matrix needed to align the end-effector frame to the aruco frame.</li>
         </ul>
     </ul>  
   </li>
 </ul>
+
+
+<h2>Difference with the previous homework (Point (2c))</h2>
+
+<h3>Previous homework</h3>
+<code>des_pose.p</code> was computed  by the planner<br>
+<code>des_pose.M = robot.getEEFrame().M;</code>
+
+<h3>This homework</h3>
+<code>des_pose.p</code> is still computed by the planner<br>
+<code>des_pose.M = robot.getEEFrame().M*Re;</code>
+
+
